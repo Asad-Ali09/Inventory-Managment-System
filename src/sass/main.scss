@@ -1,2 +1,12 @@
+//Abstracts
 @import "./abstract/variables";
 @import "./abstract/mixin";
+
+//base
+@import "./base/animation";
+@import "./base/base";
+@import "./base/typography";
+@import "./base/utilities";
+
+//Components
+@import "./components/header";

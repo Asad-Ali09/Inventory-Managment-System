@@ -1,0 +1,42 @@
+.header {
+  @include d-flex;
+  justify-content: space-around;
+
+  &__logo-box {
+    @include d-flex;
+  }
+
+  &__logo {
+    width: 5rem;
+    height: 5rem;
+
+    &--text {
+      font-size: 3rem;
+      color: $color-primary-dark;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    @include d-flex;
+    list-style: none;
+    gap: min(25px, 2.5rem);
+
+    &--item {
+      text-transform: uppercase;
+      > a {
+        &,
+        &:visited,
+        &:link {
+          color: $color-primary-dark;
+        }
+        text-decoration: none;
+        font-size: $nav-text;
+        &:hover {
+          color: $color-primary-light;
+        }
+      }
+    }
+  }
+}
