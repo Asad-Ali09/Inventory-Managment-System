@@ -1,0 +1,23 @@
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $background-color;
+  background-image: url(../../assets/background.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 4rem;
+  text-align: center;
+  color: $color-text;
+
+  &__content-box {
+    max-width: 50%;
+    @include d-flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
