@@ -1,12 +1,7 @@
 .hero {
+  position: relative;
   width: 100%;
-  min-height: min(100vh, 108rem);
-  background-color: $background-color;
-  background-image: url(../../assets/background.png);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-
+  min-height: min(110vh, 108rem);
   display: grid;
   place-items: center;
   align-content: center;
@@ -14,10 +9,102 @@
   text-align: center;
   color: $color-text;
   padding-top: 15rem;
+
   &__content-box {
     max-width: 50%;
     @include d-flex;
     flex-direction: column;
+    gap: 3rem;
+  }
+}
+
+.animated-logos {
+  > svg {
+    position: absolute;
+    width: 5rem;
+    opacity: 0.8;
+    animation: moveUp 2s linear;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    &:nth-child(1) {
+      top: 20%;
+      left: 20%;
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(2) {
+      top: 80%;
+      left: 25%;
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      top: 25%;
+      animation-delay: 1s;
+      right: 20%;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.7s;
+      left: 15%;
+      top: 55%;
+    }
+  }
+}
+
+// Coins Section
+.section__coins {
+  margin-top: 20rem;
+  min-height: min(110vh, 108rem);
+  // background-color: black;
+  position: relative;
+}
+
+.coins__left {
+  color: $color-white;
+  padding: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 60%;
+  background-color: $color-primary;
+  border-radius: 0 0 60rem 0;
+  @include d-flex;
+  div {
+    width: 80%;
+    margin: auto;
+    @include d-flex;
+    gap: 1rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.section__feature {
+  padding: 3rem 10rem;
+
+  &__header {
+    text-align: center;
+
+    h6 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: $color-primary;
+      margin-bottom: 3rem;
+    }
+    h4 {
+      font-size: 3rem;
+      letter-spacing: 0.2rem;
+    }
+    margin-block: 4rem;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
   }
 }

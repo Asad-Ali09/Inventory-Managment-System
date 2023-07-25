@@ -18,3 +18,9 @@
     transform: translateY(10rem);
   }
 }
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(5rem);
+  }
+}

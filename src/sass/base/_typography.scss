@@ -40,10 +40,21 @@ body {
 .text {
   font-size: 2.5rem;
   line-height: 160%;
+  letter-spacing: 0.2rem;
   color: rgba($color: $color-text, $alpha: 0.9);
 
   &--animated {
     animation: moveToTop 0.7s ease-out 0.7s;
     animation-fill-mode: backwards;
   }
+}
+
+.heading__tertiary {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.coins__text {
+  font: 700 4rem $font-primary;
+  line-height: 140%;
+  letter-spacing: 0.25rem;
 }

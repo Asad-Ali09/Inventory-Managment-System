@@ -5,6 +5,7 @@
   width: 100%;
   @include d-flex;
   justify-content: space-around;
+  z-index: 1;
 
   &__logo-box {
     @include d-flex;

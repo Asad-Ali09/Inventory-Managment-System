@@ -7,7 +7,8 @@
   backdrop-filter: none;
   backface-visibility: hidden;
   display: inline-block;
-
+  @include d-flex;
+  gap: 1rem;
   &:hover {
     cursor: pointer;
     transform: translateY(-0.4rem);
@@ -50,5 +51,9 @@
   &--animated {
     animation: moveToTop 0.7s ease-out 0.7s;
     animation-fill-mode: backwards;
+  }
+
+  svg {
+    width: 2rem;
   }
 }
