@@ -9,12 +9,12 @@ const Home = () => {
             <span className="heading__primary--main">Stay Ahead in the</span>
             <span className="heading__primary--sub">Crypto Game</span>
           </h1>
-          <p className="paragraph">
+          <p className="text text--animated">
             Welcome to Stay Ahead, your premier destination for navigating the
             thrilling world of cryptocurrencies.
           </p>
         </div>
-        <button className="btn btn--primary">join today!</button>
+        <button className="btn btn--primary btn--animated">join today!</button>
       </div>
     </>
   );

@@ -6,6 +6,7 @@
   transition: all 0.3s;
   backdrop-filter: none;
   backface-visibility: hidden;
+  display: inline-block;
 
   &:hover {
     cursor: pointer;
@@ -13,15 +14,41 @@
   }
 
   &--primary {
+    position: relative;
     background-color: $color-cta;
     color: $color-white;
     font-weight: bold;
     letter-spacing: 0.2rem;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 
     &:active {
       transform: translateY(-0.2rem);
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     }
+
+    &:hover {
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+      &::after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: inherit;
+      transition: all 0.4s;
+      background-color: $color-primary;
+    }
+  }
+  &--animated {
+    animation: moveToTop 0.7s ease-out 0.7s;
+    animation-fill-mode: backwards;
   }
 }

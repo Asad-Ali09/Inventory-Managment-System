@@ -18,7 +18,13 @@ body {
   }
   letter-spacing: 0.2rem;
 
+  &--main {
+    animation: 0.7s ease-out moveToLeft;
+  }
+
   &--sub {
+    animation: 0.7s ease-out moveToRight;
+
     background-image: linear-gradient(
       to bottom right,
       $color-primary-dark,
@@ -31,8 +37,13 @@ body {
   }
 }
 
-.paragraph {
+.text {
   font-size: 2.5rem;
   line-height: 160%;
   color: rgba($color: $color-text, $alpha: 0.9);
+
+  &--animated {
+    animation: moveToTop 0.7s ease-out 0.7s;
+    animation-fill-mode: backwards;
+  }
 }
