@@ -58,3 +58,20 @@ body {
   line-height: 140%;
   letter-spacing: 0.25rem;
 }
+
+.heading__secondary {
+  text-align: center;
+
+  &--main {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: $color-primary;
+    margin-bottom: 3rem;
+  }
+  &--sub {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+  }
+  margin-block: 4rem;
+}

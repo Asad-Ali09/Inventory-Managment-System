@@ -1,0 +1,46 @@
+.testimonial {
+  width: 35rem;
+  border: 0.3rem solid rgba($color-border, $color-border-opacity);
+  background-color: rgba($color-card-bg, $color-card-bg-opacity);
+  text-align: center;
+  border-radius: 0.4rem;
+  padding-bottom: 4rem;
+
+  &__description {
+    padding: 3rem;
+    text-align: justify;
+    padding-bottom: 8rem;
+    background-color: rgba($color-white, 0.9);
+    color: $color-black;
+    font-size: 1.6rem;
+    line-height: 140%;
+    letter-spacing: 0.05rem;
+  }
+
+  &__figure {
+    width: 100%;
+
+    height: 15rem;
+
+    &--image {
+      margin-top: -5rem;
+      width: 15rem;
+      object-fit: cover;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    &--text {
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: $color-primary;
+      padding-block: 1rem;
+    }
+    &--title {
+      font-size: 1.6rem;
+      color: $color-text--light;
+      letter-spacing: 0.1rem;
+      display: inline-block;
+    }
+  }
+}

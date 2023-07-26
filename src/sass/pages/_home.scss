@@ -65,17 +65,18 @@
 .coins__left {
   color: $color-white;
   padding: 3rem;
+  padding-left: 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 55%;
-  height: 70%;
+  height: 80%;
   background-color: $color-primary;
   border-radius: 0 0 60rem 0;
   @include d-flex;
   div {
     width: 80%;
-    margin: auto;
+    // margin-inline: auto;
     @include d-flex;
     gap: 1rem;
     align-items: flex-start;
@@ -85,40 +86,32 @@
 .exchange__cards {
   display: grid;
   position: absolute;
-  left: 43%;
-  top: 25%;
+  left: 40%;
+  top: 40%;
   grid-template-columns: repeat(10, 1fr);
+  grid-auto-rows: 1fr;
   column-gap: 2rem;
-  row-gap: 3rem;
+  row-gap: 5rem;
   > div:nth-child(n + 11) {
-    margin-left: -5rem;
-    margin-right: 5rem;
+    margin-left: 5rem;
+    margin-right: -5rem;
   }
 }
 
 .section__feature {
   padding: 3rem 10rem;
-
-  &__header {
-    text-align: center;
-
-    h6 {
-      font-size: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      color: $color-primary;
-      margin-bottom: 3rem;
-    }
-    h4 {
-      font-size: 3rem;
-      letter-spacing: 0.2rem;
-    }
-    margin-block: 4rem;
-  }
+  margin-block: 15rem;
 
   &__body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
   }
+}
+
+.testimonials {
+  margin-block: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

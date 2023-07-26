@@ -5,8 +5,8 @@
   gap: 2rem;
   padding: 2rem;
   border-radius: 1.5rem;
-  background-color: rgba(52, 64, 84, 0.3);
-  border: 1px solid rgba(27, 202, 255, 0.49);
+  background-color: rgba($color-card-bg, $color-card-bg-opacity);
+  border: 1px solid rgba($color-border, $color-border-opacity);
   svg {
     width: 10rem;
     color: $color-white;
