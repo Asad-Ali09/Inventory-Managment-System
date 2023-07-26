@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BtcSVG from "../components/BtcSVG";
 import EthSVG from "../components/EthSVG";
 import UsdtSVG from "../components/USDTSVG";
@@ -7,6 +7,14 @@ import { SiFsecure } from "react-icons/si";
 import { BsStack, BsTools } from "react-icons/bs";
 import { MdMobileFriendly, MdInsights } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectAllExcahnges,
+  selectError,
+  selectStatus,
+  fetchExchanges,
+} from "../redux/markets/exchangesSlice";
+import ExchangeCard from "../components/ExchangeCard";
 
 const features = [
   {
@@ -43,6 +51,17 @@ const features = [
 ];
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const exchanges = useSelector(selectAllExcahnges);
+  const exchangeStatus = useSelector(selectStatus);
+  const Error = useSelector(selectError);
+
+  useEffect(() => {
+    if (exchangeStatus === "idle") {
+      dispatch(fetchExchanges());
+    }
+  }, [exchangeStatus, dispatch]);
+
   return (
     <>
       {/* Hero */}
@@ -81,6 +100,19 @@ const Home = () => {
               COINWISE.
             </p>
           </div>
+        </div>
+        <div className="exchange__cards">
+          {exchanges.map((el) => {
+            return (
+              <ExchangeCard
+                key={el.id}
+                title={el.name}
+                image={el.image}
+                year={el.year_established}
+                url={el.url}
+              />
+            );
+          })}
         </div>
       </section>
 
