@@ -19,6 +19,7 @@ import Testimonial from "../components/Testimonial";
 import testimonialImg1 from "../assets/jhon.jpg";
 import testimonialImg2 from "../assets/mia.jpg";
 import testimonialImg3 from "../assets/david.jpg";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -77,6 +78,8 @@ const testimonials = [
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const exchanges = useSelector(selectAllExcahnges);
   const exchangeStatus = useSelector(selectStatus);
   const Error = useSelector(selectError);
@@ -107,8 +110,11 @@ const Home = () => {
             thrilling world of cryptocurrencies.
           </p>
         </div>
-        <button className="btn btn--primary btn--animated">
-          join today!
+        <button
+          onClick={() => navigate("/market")}
+          className="btn btn--primary btn--animated"
+        >
+          Browse Market!
           <BtcSVG />
         </button>
       </section>
