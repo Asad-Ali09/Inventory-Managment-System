@@ -1,0 +1,65 @@
+.section__coin {
+  //General Styles for the Coin Page
+  min-height: min(100vh, 1080px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  grid-auto-rows: 1fr;
+  width: 80%;
+  //Styles for Coin Figure
+  &__figure {
+    text-align: center;
+    @include d-flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    font-family: $font-secondary;
+  }
+
+  &__image {
+    width: min(20rem, 100%);
+  }
+
+  letter-spacing: 0.1rem;
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  &__rank {
+    font-size: 2rem;
+  }
+
+  //Styles for Coin Description
+
+  &__article {
+    grid-column: span 2;
+  }
+
+  &__info {
+    @include d-flex;
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    justify-content: space-between;
+    > div {
+      @include d-flex;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+  }
+
+  &__desc {
+    font-size: 2rem;
+    max-height: 35rem;
+    letter-spacing: 0.1rem;
+    line-height: 150%;
+
+    overflow-y: scroll;
+
+    a {
+      text-decoration: none;
+      color: $color-primary;
+    }
+  }
+}

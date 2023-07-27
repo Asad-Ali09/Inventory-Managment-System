@@ -2,6 +2,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Market from "./pages/Market";
+import Coin from "./pages/Coin";
 import "./sass/main.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path="/market" element={<Market />} />
+        <Route path="/market/:coinID" element={<Coin />} />
       </Routes>
       <Footer />
     </Router>

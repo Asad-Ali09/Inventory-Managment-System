@@ -26,3 +26,12 @@ body {
   background-color: $color-primary;
   color: $color-white;
 }
+
+::-webkit-scrollbar {
+  background-color: $color-white;
+  background-color: rgba($color-card-bg, $color-card-bg-opacity);
+}
+::-webkit-scrollbar-thumb {
+  background-color: $color-primary-light;
+  background-color: rgba($color-border, $color-border-opacity);
+}

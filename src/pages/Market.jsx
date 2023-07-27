@@ -6,8 +6,10 @@ import {
   fetchMarkets,
 } from "../redux/markets/marketSlice";
 import Pagination from "../components/Pagination";
+import { useNavigate } from "react-router-dom";
 
 const Market = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const Coins = useSelector(selectAllCoins);
   const coinsStatus = useSelector(selectStatus);
@@ -48,7 +50,11 @@ const Market = () => {
               const percentColor =
                 el.price_change_percentage_24h >= 0 ? "green-text" : "red-text";
               return (
-                <tr className="market__table--row">
+                <tr
+                  key={el.id}
+                  className="market__table--row"
+                  onClick={() => navigate(`/market/${el.id}`)}
+                >
                   <td className="market__table--data">
                     <img src={el.image} alt={el.name} />
                     <p>{el.name}</p>
