@@ -11,9 +11,16 @@ const Pagination = ({
     pageNumbers.push(i);
   }
 
+  const ScrollToTop = () => {
+    window.scrollTo({
+      top: 300,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <nav className="pagination">
-      <ul className="pagination__list">
+      <ul className="pagination__list" onClick={ScrollToTop}>
         {pageNumbers.map((number) => {
           return (
             <li

@@ -18,7 +18,6 @@ const Coin = () => {
   const status = useSelector(selectStatus);
 
   useEffect(() => {
-    console.log({ Trueinside: coinID });
     dispatch(fetchSingleCoin(coinID));
   }, [dispatch]);
 

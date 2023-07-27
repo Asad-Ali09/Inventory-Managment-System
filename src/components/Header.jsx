@@ -1,12 +1,14 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <header className="header">
-        <div className="header__logo-box">
+        <div className="header__logo-box" onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" className="header__logo" />
           <div className="header__logo--text">Coin Wise</div>
         </div>

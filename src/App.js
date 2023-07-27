@@ -5,10 +5,12 @@ import Market from "./pages/Market";
 import Coin from "./pages/Coin";
 import "./sass/main.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path={"/"} element={<Home />} />

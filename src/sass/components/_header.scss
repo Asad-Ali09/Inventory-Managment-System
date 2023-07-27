@@ -9,6 +9,7 @@
 
   &__logo-box {
     @include d-flex;
+    cursor: pointer;
   }
 
   &__logo {
