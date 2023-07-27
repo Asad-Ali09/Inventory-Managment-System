@@ -1,11 +1,20 @@
 .header {
-  position: fixed;
-  padding: 1rem 0;
-  top: 0;
   width: 100%;
-  @include d-flex;
-  justify-content: space-around;
+  position: fixed;
+  padding: 1.3rem 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba($color-card-bg, $color-card-bg-opacity);
+  border-bottom: 1px solid rgba($color-border, $color-border-opacity);
   z-index: 1;
+  font-family: $font-secondary;
+  &__content {
+    @include d-flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-inline: auto;
+  }
 
   &__logo-box {
     @include d-flex;
@@ -20,6 +29,7 @@
     &--text {
       font-size: 3rem;
       color: $color-primary-dark;
+      text-transform: uppercase;
     }
   }
 }
