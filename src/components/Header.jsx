@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-light.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -10,6 +10,7 @@ const Header = () => {
       <header className="header">
         <div className="header__logo-box" onClick={() => navigate("/")}>
           <img src={logo} alt="Logo" className="header__logo" />
+
           <div className="header__logo--text">Coin Wise</div>
         </div>
 
