@@ -1,9 +1,23 @@
 .pagination {
   margin: 3rem auto;
+
   &__list {
     list-style: none;
     @include d-flex;
     gap: 2rem;
+  }
+
+  &--mobile {
+    display: none;
+    @include respond(tab) {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &--desktop {
+    @include respond(tab) {
+      display: none;
+    }
   }
 
   &__item {

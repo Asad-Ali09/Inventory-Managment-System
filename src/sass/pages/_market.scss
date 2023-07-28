@@ -5,6 +5,10 @@
     padding: 4rem;
     margin-inline: auto;
     width: 90%;
+
+    @include respond(phone) {
+      padding-inline: 2rem;
+    }
   }
 
   &__table {
@@ -50,6 +54,26 @@
         padding-inline: $table-padding;
       }
       font-family: $font-secondary;
+
+      @include respond(lcd-mini) {
+        font-size: 2rem;
+      }
+      @include respond(tab) {
+        &:nth-child(n + 3) {
+          display: none;
+        }
+        &:nth-child(2) {
+          padding-inline: $table-padding;
+        }
+      }
+      @include respond(phone) {
+        font-size: 1.5rem;
+      }
+      @include respond(phone-sm) {
+        &:not(:first-child) {
+          display: none;
+        }
+      }
     }
 
     &--data {
@@ -58,15 +82,45 @@
       &:not(:first-child) {
         text-align: right;
         font-weight: 500;
+        @include respond(lcd-mini) {
+          font-size: 2rem;
+        }
+        @include respond(phone) {
+          font-weight: 400;
+          font-size: 1.2rem;
+        }
       }
       &:first-child {
         @include d-flex;
         justify-content: flex-start;
         gap: 2rem;
+        @include respond(phone) {
+          gap: 1rem;
+        }
       }
       &:first-child,
       &:last-child {
         padding-inline: $table-padding;
+      }
+      @include respond(lcd-mini) {
+        font-size: 2rem;
+      }
+      @include respond(tab) {
+        &:nth-child(n + 3) {
+          display: none;
+        }
+        &:nth-child(2) {
+          padding-inline: $table-padding;
+        }
+      }
+      @include respond(phone) {
+        font-size: 1.5rem;
+      }
+
+      @include respond(phone-sm) {
+        &:not(:first-child) {
+          display: none;
+        }
       }
 
       img {

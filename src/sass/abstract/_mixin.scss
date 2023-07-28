@@ -3,3 +3,42 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-sm {
+    @media screen and (max-width: $m-phone-sm) {
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media screen and (max-width: $m-phone) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab {
+    @media screen and (max-width: $m-tab) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-md {
+    @media screen and (max-width: $m-tab-md) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    @media screen and (max-width: $m-tab-lg) {
+      @content;
+    }
+  }
+  @if $breakpoint == lcd-mini {
+    @media screen and (max-width: $m-lcd-mini) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media screen and (max-width: $m-md) {
+      @content;
+    }
+  }
+}

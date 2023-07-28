@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import logo from "../assets/logo-light.png";
-import { Link, useNavigate, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Header = () => {
   const navigate = useNavigate();
+  const navRef = useRef();
+
+  const navToggle = () => {
+    const visibility = navRef.current.getAttribute("data-visible");
+
+    if (visibility === "false") {
+      navRef.current.setAttribute("data-visible", true);
+    } else if (visibility === "true") {
+      navRef.current.setAttribute("data-visible", false);
+    }
+  };
+  const closeNav = () => {
+    navRef.current.setAttribute("data-visible", false);
+  };
 
   return (
     <>
@@ -15,7 +30,22 @@ const Header = () => {
             <div className="header__logo--text">Coin Wise</div>
           </div>
 
-          <nav className="nav">
+          <button
+            aria-controls="primary-nav"
+            aria-expanded="false"
+            className="nav__toggle"
+            onClick={navToggle}
+          >
+            <GiHamburgerMenu />
+          </button>
+
+          <nav
+            ref={navRef}
+            id="primary-nav"
+            className="nav"
+            data-visible="false"
+            onClick={closeNav}
+          >
             <ul className="nav__list">
               <li className="nav__list--item">
                 <Link to={"/"}>Home</Link>
@@ -24,7 +54,7 @@ const Header = () => {
                 <Link to={"/market"}>Market</Link>
               </li>
               <li className="nav__list--item">
-                <Link to={"/"}>Join</Link>
+                <Link>Join</Link>
               </li>
             </ul>
           </nav>

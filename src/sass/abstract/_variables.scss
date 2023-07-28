@@ -5,7 +5,6 @@ $defaultFontSize: 1.6rem;
 $nav-text: 2rem;
 
 // COLORS
-//Colors
 $color-cta: #51ce7f;
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
@@ -21,21 +20,17 @@ $color-border-opacity: 0.49;
 $color-card-bg: rgb(52, 64, 84);
 $color-card-bg-opacity: 0.3;
 
-$color-secondary-light: #ffb900;
-$color-secondary-dark: #ff7730;
-
-$color-tertiary-light: #2998ff;
-$color-tertiary-dark: #5643fa;
-
-$color-primary-dark-2: #314cbc;
-$color-primary-light-2: #d889fa;
-
-$color-text-primary: #777;
-$color-grey-dark--2: #333;
 $color-white: #fff;
 $color-black: #000;
 
-$color-bg-grey: #f7f7f7;
-$color-grey--light: #eee;
-
 $table-padding: 2.4rem;
+
+//Media Queries
+$m-md: 1025px;
+$m-landscape: 987px;
+$m-lcd-mini: 900px;
+$m-tab-lg: 795px;
+$m-tab-md: 700px;
+$m-tab: 600px;
+$m-phone: 450px;
+$m-phone-sm: 320px;

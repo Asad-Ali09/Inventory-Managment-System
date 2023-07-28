@@ -13,14 +13,31 @@ const Pagination = ({
 
   const ScrollToTop = () => {
     window.scrollTo({
-      top: 300,
+      top: 270,
       behavior: "smooth",
     });
   };
 
+  const prevPage = function () {
+    if (currentPage <= 1) {
+      return;
+    }
+    setPageNumber(currentPage - 1);
+  };
+  const nextPage = function () {
+    if (currentPage >= pageNumbers.length) {
+      return;
+    }
+    setPageNumber(currentPage + 1);
+  };
+
   return (
     <nav className="pagination">
-      <ul className="pagination__list" onClick={ScrollToTop}>
+      {/* For desktop */}
+      <ul
+        className="pagination__list pagination--desktop"
+        onClick={ScrollToTop}
+      >
         {pageNumbers.map((number) => {
           return (
             <li
@@ -34,6 +51,20 @@ const Pagination = ({
             </li>
           );
         })}
+      </ul>
+
+      {/* For Mobile */}
+      <ul className="pagination__list pagination--mobile" onClick={ScrollToTop}>
+        <button className="btn btn--page" onClick={prevPage}>
+          Prev
+        </button>
+        <li className="pagination__item active">
+          {pageNumbers[currentPage - 1]}
+        </li>
+
+        <button className="btn btn--page" onClick={nextPage}>
+          Next
+        </button>
       </ul>
     </nav>
   );

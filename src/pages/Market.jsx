@@ -60,13 +60,13 @@ const Market = () => {
                     <p>{el.name}</p>
                   </td>
                   <td className="market__table--data">
-                    $ {addCommas(el.current_price)}
+                    $&nbsp;{addCommas(el.current_price)}
                   </td>
                   <td className={`market__table--data ${percentColor}`}>
-                    {el.price_change_percentage_24h?.toFixed(2)} %
+                    {el.price_change_percentage_24h?.toFixed(2)}&nbsp;%
                   </td>
                   <td className="market__table--data">
-                    $ {addCommas(el.market_cap)}
+                    $&nbsp;{addCommas(el.market_cap)}
                   </td>
                 </tr>
               );

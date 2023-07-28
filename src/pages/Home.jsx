@@ -10,7 +10,7 @@ import { BiSupport } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAllExcahnges,
-  selectError,
+  // selectError,
   selectStatus,
   fetchExchanges,
 } from "../redux/markets/exchangesSlice";
@@ -82,7 +82,7 @@ const Home = () => {
 
   const exchanges = useSelector(selectAllExcahnges);
   const exchangeStatus = useSelector(selectStatus);
-  const Error = useSelector(selectError);
+  // const Error = useSelector(selectError);
 
   useEffect(() => {
     if (exchangeStatus === "idle") {

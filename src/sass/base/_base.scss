@@ -8,6 +8,13 @@
 
 html {
   font-size: 62.5%;
+
+  @media screen and (max-width: $m-md) {
+    font-size: 54.2%;
+  }
+  @media screen and (max-width: $m-phone) {
+    font-size: 62.5%;
+  }
 }
 
 body {

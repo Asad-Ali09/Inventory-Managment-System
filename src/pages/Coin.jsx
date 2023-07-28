@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import {
   fetchSingleCoin,
   selectCoin,
-  selectError,
-  selectStatus,
+  // selectError,
+  // selectStatus,
 } from "../redux/markets/coinSlice";
 import DOMPurify from "dompurify";
 import { useEffect } from "react";
@@ -14,12 +14,12 @@ const Coin = () => {
 
   const dispatch = useDispatch();
   const Coin = useSelector(selectCoin);
-  const error = useSelector(selectError);
-  const status = useSelector(selectStatus);
+  // const error = useSelector(selectError);
+  // const status = useSelector(selectStatus);
 
   useEffect(() => {
     dispatch(fetchSingleCoin(coinID));
-  }, [dispatch]);
+  }, [dispatch, coinID]);
 
   const colorClass = (value) => {
     if (value >= 0) return "green-text";

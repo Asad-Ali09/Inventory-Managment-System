@@ -9,9 +9,20 @@
   display: inline-block;
   @include d-flex;
   gap: 1rem;
+
   &:hover {
     cursor: pointer;
     transform: translateY(-0.4rem);
+    @media (hover: none) {
+      transform: none;
+    }
+    @include respond(tab) {
+      transform: none;
+    }
+  }
+
+  @include respond(phone-sm) {
+    padding: 1rem 1.5rem;
   }
 
   &--primary {
