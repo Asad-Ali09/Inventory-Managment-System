@@ -6,6 +6,7 @@ const initialState = {
   coins: [],
   status: "idle",
   error: null,
+  fetchRequest: false,
 };
 
 const fetchMarkets = createAsyncThunk("marketSlice/fetchMarkets", async () => {
@@ -18,11 +19,19 @@ const fetchMarkets = createAsyncThunk("marketSlice/fetchMarkets", async () => {
 const marketSlice = createSlice({
   name: "markets",
   initialState,
-  reducers: {},
+  reducers: {
+    setFetchRequest: (state, action) => {
+      state.fetchRequest = action.payload;
+    },
+    setStatusIdle: (state, action) => {
+      state.status = "idle";
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchMarkets.pending, (state, action) => {
         state.status = "loading";
+        state.fetchRequest = true;
       })
       .addCase(fetchMarkets.fulfilled, (state, action) => {
         state.status = "succeeded";
@@ -31,6 +40,7 @@ const marketSlice = createSlice({
       .addCase(fetchMarkets.rejected, (state, action) => {
         state.status = "rejected";
         state.error = action.error.message;
+        state.fetchRequest = false;
       });
   },
 });
@@ -38,6 +48,8 @@ const marketSlice = createSlice({
 export const selectAllCoins = (state) => state.markets.coins;
 export const selectStatus = (state) => state.markets.status;
 export const selectError = (state) => state.markets.error;
+export const fetchReqSelector = (state) => state.markets.fetchRequest;
 
 export default marketSlice.reducer;
+export const { setFetchRequest, setStatusIdle } = marketSlice.actions;
 export { fetchMarkets };

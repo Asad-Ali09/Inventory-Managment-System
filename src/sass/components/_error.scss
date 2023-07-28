@@ -1,0 +1,11 @@
+.error {
+  text-align: center;
+  font-family: $font-secondary;
+  &__title {
+  }
+
+  &__text {
+    letter-spacing: 0.2rem;
+    font-size: 3rem;
+  }
+}

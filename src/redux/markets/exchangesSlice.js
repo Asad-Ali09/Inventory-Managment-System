@@ -6,6 +6,7 @@ const initialState = {
   exchanges: [],
   status: "idle",
   error: null,
+  fetchRequest: false,
 };
 
 const fetchExchanges = createAsyncThunk(
@@ -21,7 +22,14 @@ const fetchExchanges = createAsyncThunk(
 const exchangeSlice = createSlice({
   name: "exchanges",
   initialState,
-  reducers: {},
+  reducers: {
+    setFetchRequest: (state, action) => {
+      state.fetchRequest = action.payload;
+    },
+    setStatusIdle: (state, action) => {
+      state.status = "idle";
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchExchanges.pending, (state, action) => {
@@ -41,8 +49,8 @@ const exchangeSlice = createSlice({
 export const selectAllExcahnges = (state) => state.exchanges.exchanges;
 export const selectStatus = (state) => state.exchanges.status;
 export const selectError = (state) => state.exchanges.error;
+export const fetchReqSelector = (state) => state.exchanges.fetchRequest;
 
 export default exchangeSlice.reducer;
+export const { setFetchRequest, setStatusIdle } = exchangeSlice.actions;
 export { fetchExchanges };
-
-// const export {} = exchangeSlice.actions;

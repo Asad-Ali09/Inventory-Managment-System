@@ -3,19 +3,20 @@ import { useParams } from "react-router-dom";
 import {
   fetchSingleCoin,
   selectCoin,
-  // selectError,
+  selectError,
   selectStatus,
 } from "../redux/markets/coinSlice";
 import DOMPurify from "dompurify";
 import { useEffect } from "react";
 import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const Coin = () => {
   const { coinID } = useParams();
 
   const dispatch = useDispatch();
   const Coin = useSelector(selectCoin);
-  // const error = useSelector(selectError);
+  const error = useSelector(selectError);
   const status = useSelector(selectStatus);
 
   useEffect(() => {
@@ -34,6 +35,13 @@ const Coin = () => {
     return (
       <section className="section__coin section__loading">
         <Loading />
+      </section>
+    );
+  }
+  if (status === "rejected") {
+    return (
+      <section className="section__coin section__loading">
+        <Error msg={error} />
       </section>
     );
   }

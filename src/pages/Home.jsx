@@ -10,9 +10,12 @@ import { BiSupport } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAllExcahnges,
-  // selectError,
+  selectError,
   selectStatus,
   fetchExchanges,
+  fetchReqSelector,
+  setFetchRequest,
+  setStatusIdle,
 } from "../redux/markets/exchangesSlice";
 import ExchangeCard from "../components/ExchangeCard";
 import Testimonial from "../components/Testimonial";
@@ -21,6 +24,7 @@ import testimonialImg2 from "../assets/mia.jpg";
 import testimonialImg3 from "../assets/david.jpg";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const features = [
   {
@@ -83,13 +87,25 @@ const Home = () => {
 
   const exchanges = useSelector(selectAllExcahnges);
   const exchangeStatus = useSelector(selectStatus);
-  // const Error = useSelector(selectError);
+  const error = useSelector(selectError);
+  const isRequestMade = useSelector(fetchReqSelector);
 
   useEffect(() => {
     if (exchangeStatus === "idle") {
       dispatch(fetchExchanges());
     }
   }, [exchangeStatus, dispatch]);
+
+  useEffect(() => {
+    if (exchangeStatus === "rejected" && !isRequestMade) {
+      dispatch(setFetchRequest(true));
+
+      setTimeout(() => {
+        dispatch(setStatusIdle());
+        //3 Minutes
+      }, 3 * 60 * 1000);
+    }
+  }, [exchangeStatus, isRequestMade, dispatch]);
 
   return (
     <>
@@ -136,6 +152,8 @@ const Home = () => {
         <div className="exchange__cards">
           {exchangeStatus === "loading" ? (
             <Loading />
+          ) : exchangeStatus === "rejected" ? (
+            <Error msg={error} />
           ) : (
             exchanges.map((el) => {
               return (
