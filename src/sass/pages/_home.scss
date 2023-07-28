@@ -77,7 +77,6 @@
 // Coins Section
 .section__coins {
   overflow: hidden;
-  z-index: 10000;
   margin-top: 20rem;
   min-height: min(90vh, 108rem);
   // background-color: black;
@@ -107,9 +106,11 @@
     border-radius: 0;
     text-align: center;
     padding-block: 8rem;
-    margin-block: 4rem;
-
+    margin-block: 8rem;
     transform: skewY(-12deg);
+  }
+  @include respond(phone) {
+    margin-block: 4rem;
   }
 
   div {
