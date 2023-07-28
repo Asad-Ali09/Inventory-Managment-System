@@ -20,6 +20,7 @@ import testimonialImg1 from "../assets/jhon.jpg";
 import testimonialImg2 from "../assets/mia.jpg";
 import testimonialImg3 from "../assets/david.jpg";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const features = [
   {
@@ -133,17 +134,21 @@ const Home = () => {
           </div>
         </div>
         <div className="exchange__cards">
-          {exchanges.map((el) => {
-            return (
-              <ExchangeCard
-                key={el.id}
-                title={el.name}
-                image={el.image}
-                year={el.year_established}
-                url={el.url}
-              />
-            );
-          })}
+          {exchangeStatus === "loading" ? (
+            <Loading />
+          ) : (
+            exchanges.map((el) => {
+              return (
+                <ExchangeCard
+                  key={el.id}
+                  title={el.name}
+                  image={el.image}
+                  year={el.year_established}
+                  url={el.url}
+                />
+              );
+            })
+          )}
         </div>
       </section>
 

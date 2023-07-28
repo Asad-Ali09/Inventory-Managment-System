@@ -4,10 +4,11 @@ import {
   fetchSingleCoin,
   selectCoin,
   // selectError,
-  // selectStatus,
+  selectStatus,
 } from "../redux/markets/coinSlice";
 import DOMPurify from "dompurify";
 import { useEffect } from "react";
+import Loading from "../components/Loading";
 
 const Coin = () => {
   const { coinID } = useParams();
@@ -15,7 +16,7 @@ const Coin = () => {
   const dispatch = useDispatch();
   const Coin = useSelector(selectCoin);
   // const error = useSelector(selectError);
-  // const status = useSelector(selectStatus);
+  const status = useSelector(selectStatus);
 
   useEffect(() => {
     dispatch(fetchSingleCoin(coinID));
@@ -27,6 +28,14 @@ const Coin = () => {
   };
   function addCommas(number) {
     return number?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  if (status === "loading") {
+    return (
+      <section className="section__coin section__loading">
+        <Loading />
+      </section>
+    );
   }
 
   return (

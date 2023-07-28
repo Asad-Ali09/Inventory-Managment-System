@@ -1,0 +1,23 @@
+.loading {
+  @include d-flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  > svg {
+    font-size: 10rem;
+    width: 10rem;
+    color: $color-primary;
+    animation: rotation 2s linear;
+    animation-iteration-count: infinite;
+  }
+
+  &__text {
+    font-size: 2rem;
+  }
+}
+
+.section__loading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

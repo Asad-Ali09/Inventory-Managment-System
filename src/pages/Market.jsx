@@ -7,6 +7,7 @@ import {
 } from "../redux/markets/marketSlice";
 import Pagination from "../components/Pagination";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const Market = () => {
   const navigate = useNavigate();
@@ -29,6 +30,14 @@ const Market = () => {
 
   function addCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  if (coinsStatus === "loading") {
+    return (
+      <section className="market market__page">
+        <Loading />
+      </section>
+    );
   }
 
   return (
